@@ -17,6 +17,24 @@
       "text": "Mark Twain",
       "id": 3,
       "state": "completed"
+    },
+    {
+      "title": "Kathir",
+      "text": "read java 10 API's",
+      "state": "not-started",
+      "id": 4
+    },
+    {
+      "title": "Read Angular 5 blog",
+      "text": "Shall do at 6 pm",
+      "state": "not-started",
+      "id": 5
+    },
+    {
+      "title": "Read Angular 5 blog",
+      "text": "Shall do at 6 pm",
+      "state": "not-started",
+      "id": 6
     }
   ]
 }

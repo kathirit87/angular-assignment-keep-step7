@@ -1,5 +1,6 @@
-<div class="keep-c-note-container">
-  
+<div class="keep-c-note-container" *ngIf="notes">
 	<!-- Include the notes collection with each note rendered as a separate NoteComponent -->
-
+	 <mat-list *ngFor="let note of notes">
+        <app-note [note] = "note"></app-note>
+    </mat-list>
 </div>

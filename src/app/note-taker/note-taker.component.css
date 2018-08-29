@@ -1,0 +1,11 @@
+.error-message {
+    color: red;
+    padding : 20px 10px 10px 10px;
+     display: flex;
+    flex-direction: column;
+}
+
+.matcontainer {
+    display: flex;
+    flex-direction: column;    
+}
