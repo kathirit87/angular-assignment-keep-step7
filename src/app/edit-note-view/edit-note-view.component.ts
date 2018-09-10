@@ -19,7 +19,7 @@ export class EditNoteViewComponent {
     this.note = data;
   }
 
-  /* editNote() {
+  editNote() {
     this.errMessage = '';
     this.noteService.editNote(this.note).subscribe(data => {
       console.log('edit');
@@ -29,7 +29,7 @@ export class EditNoteViewComponent {
     err => {
       this.errMessage = err.message;
     });
-  } */
+  }
   onSave() {
     this.errMessage = '';
     this.noteService.editNote(this.note).subscribe(data => {

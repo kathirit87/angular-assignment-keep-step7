@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatToolbarModule, MatExpansionModule, MatCardModule, MatListModule, MatFormFieldModule
-        , MatInputModule, MatButtonModule, MatDialogModule, MAT_DIALOG_DATA, MatSelectModule } from '@angular/material';
+        , MatInputModule, MatButtonModule, MatDialogModule, MAT_DIALOG_DATA, MatSelectModule, MatDialogRef } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -18,8 +18,9 @@ import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component
 import { AuthenticationService } from './services/authentication.service';
 import { NotesService } from './services/notes.service';
 import { RouterService } from './services/router.service';
-import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
+import { HttpModule } from '@angular/http';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -62,9 +63,13 @@ const routes: Routes = [
               MatSelectModule,
               ReactiveFormsModule,
               FormsModule,
-              RouterModule.forRoot(routes)
+              RouterModule.forRoot(routes),
+              HttpModule
             ],
-  providers: [AuthenticationService, NotesService, RouterService, CanActivateRouteGuard],
+  providers: [AuthenticationService, NotesService, RouterService, CanActivateRouteGuard,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }
+  ],
   bootstrap: [ AppComponent ],
   entryComponents: [ EditNoteViewComponent ]
 })
