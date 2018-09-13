@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class NotesService {
@@ -23,6 +24,9 @@ export class NotesService {
     return this.httpClient.get<Note[]>(this.api, { headers: this.header }).subscribe((data) => {
       this.notes = data;
       this.notesSubject.next(this.notes);
+    },
+    (error) => {
+      console.log(error);
     });
   }
 
