@@ -8,22 +8,20 @@ import { NotesService } from '../services/notes.service';
   templateUrl: './edit-note-view.component.html',
   styleUrls: ['./edit-note-view.component.css']
 })
-export class EditNoteViewComponent implements OnInit{
-  
+export class EditNoteViewComponent implements OnInit {
+
   note: Note;
   states: Array<string> = ['not-started', 'started', 'completed'];
   errMessage: string;
 
   constructor(public dialogRef: MatDialogRef<EditNoteViewComponent>,
     @Inject(MAT_DIALOG_DATA) public noteId: Number,
-    private noteService: NotesService) {
-    
-  }
+    private noteService: NotesService) { }
 
   ngOnInit(): void {
     this.note = this.noteService.getNoteById(this.noteId);
   }
-  
+
   onSave() {
     this.errMessage = '';
     this.noteService.editNote(this.note).subscribe(data => {
