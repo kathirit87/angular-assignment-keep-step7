@@ -11,7 +11,7 @@ export class NotesService {
 
   notes: Array<Note>;
   notesSubject: BehaviorSubject<Array<Note>>;
-  api = 'http://localhost:3000/api/v1/notes';
+  api = 'http://localhost:9300/api/v1/note';
   header: HttpHeaders;
 
   constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
@@ -21,9 +21,10 @@ export class NotesService {
   }
 
   fetchNotesFromServer() {
-    return this.httpClient.get<Note[]>(this.api, { headers: this.header }).subscribe((data) => {
+    return this.httpClient.get<Note[]>(this.api+`/Kathirit89`, { headers: this.header }).subscribe((data) => {
       this.notes = data;
       this.notesSubject.next(this.notes);
+      console.log("notes ::"+this.notes)
     },
     (error) => {
       console.log(error);
@@ -40,10 +41,10 @@ export class NotesService {
 
   editNote(note: Note): Observable<Note> {
     return this.httpClient
-    .put<Note>(this.api + `/${note.id}`, note, {headers: this.header});
+    .put<Note>(this.api + `/${note.noteId}`, note, {headers: this.header});
   }
 
   getNoteById(noteId): Note {
-    return this.notes.find(i => i.id === noteId);
+    return this.notes.find(i => i.noteId === noteId);
   }
 }

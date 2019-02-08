@@ -11,7 +11,7 @@ export class AuthenticationService {
   }
 
   authenticateUser(data) {
-    return this.httpService.post('http://localhost:3000/auth/v1/', data);
+    return this.httpService.post('http://localhost:9100/api/v1/auth/login', data);
   }
 
   setBearerToken(token) {
@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
 
   isUserAuthenticated(token): Promise<boolean> {
-    return this.httpService.post('http://localhost:3000/auth/v1/isAuthenticated', {}, {
+    return this.httpService.post('http://localhost:9100/api/v1/auth/isAuthenticated', {}, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
     }).map((res) => res['isAuthenticated']).toPromise();
   }

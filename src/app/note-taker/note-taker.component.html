@@ -12,10 +12,13 @@
         </mat-expansion-panel-header>
         <div class="matcontainer">
             <mat-form-field>
-                <input matInput placeholder="Title" [(ngModel)]="note.title" name="title">
+                <input matInput placeholder="Title" [(ngModel)]="note.noteTitle" name="title">
             </mat-form-field>
             <mat-form-field>
-                <textarea matInput placeholder="Description" [(ngModel)]="note.text" name="text"></textarea>
+                <textarea matInput placeholder="Description" [(ngModel)]="note.noteContent" name="text"></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Status" [(ngModel)]="note.noteStatus" name="noteStatus"></textarea>
             </mat-form-field>
             <button mat-raised-button color="primary" style="width: 100px;" (click)="addNote()">Done</button>
         </div>

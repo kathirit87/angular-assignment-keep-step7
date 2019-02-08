@@ -1,12 +1,20 @@
+import {Category} from "./category";
+import {Reminder} from "./reminder";
+
 export class Note {
-  id: Number;
-  title: string;
-  text: string;
-  state: string;
+  noteId: Number;
+  noteTitle: string;
+  noteContent: string;
+  noteStatus: string;
+  category: Category;
+  reminders: Array<Reminder>;
 
   constructor() {
-    this.title = '';
-    this.text = '';
-    this.state = 'not-started';
+    this.noteTitle = '';
+    this.noteContent = '';
+    this.noteStatus = 'not-started';
+    this.category=undefined;
+    this.reminders=undefined;
+
   }
 }

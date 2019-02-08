@@ -18,9 +18,9 @@ export class ListViewComponent implements OnInit {
     this.noteService
          .getNotes()
          .subscribe((data) => {
-            this.notStartedNotes = data.filter(i => i.state === 'not-started');
-            this.startedNotes = data.filter(i => i.state === 'started');
-            this.completedNotes = data.filter(i => i.state === 'completed' );
+            this.notStartedNotes = data.filter(i => i.noteStatus === 'not-started');
+            this.startedNotes = data.filter(i => i.noteStatus === 'started');
+            this.completedNotes = data.filter(i => i.noteStatus === 'completed' );
          });
   }
 }

@@ -15,6 +15,7 @@ export class CanActivateRouteGuard implements CanActivate {
       return this.authService
               .isUserAuthenticated(this.authService.getBearerToken())
               .then(isAutheticated => {
+                console.log(isAutheticated);
                 if (!isAutheticated) {
                     this.routeService.routeToLogin();
                 }

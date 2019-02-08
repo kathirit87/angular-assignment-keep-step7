@@ -27,13 +27,13 @@ export class NoteTakerComponent implements OnInit {
       return false;
     }
 
-    if ( this.note.title === null || this.note.text === null  || typeof(this.note.title) === 'undefined'
-      || typeof(this.note.text) === 'undefined' ) {
+    if ( this.note.noteTitle === null || this.note.noteContent === null  || typeof(this.note.noteTitle) === 'undefined'
+      || typeof(this.note.noteContent) === 'undefined' ) {
       this.errMessage = msg;
       return false;
     }
 
-    if ( this.note.title.trim() === '' || this.note.text.trim() === '') {
+    if ( this.note.noteTitle.trim() === '' || this.note.noteContent.trim() === '') {
       this.errMessage = msg;
       return false;
     }

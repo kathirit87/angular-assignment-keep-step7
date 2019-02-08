@@ -10,11 +10,11 @@ import { RouterService } from '../services/router.service';
 })
 export class LoginComponent {
   submitMessage: string;
-  username= new FormControl();
-  password= new FormControl();
+  userId= new FormControl();
+  userPassword= new FormControl();
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl(),
-    password: new FormControl()
+    userId: new FormControl(),
+    userPassword: new FormControl()
   });
   @ViewChild(FormGroupDirective)
   formGroupDirective: FormGroupDirective;
