@@ -1,6 +1,7 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+
 import { NotesService } from '../services/notes.service';
 import { NoteTakerComponent } from '../note-taker/note-taker.component';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',

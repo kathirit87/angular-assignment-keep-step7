@@ -5,6 +5,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class NotesService {
@@ -21,7 +22,7 @@ export class NotesService {
   }
 
   fetchNotesFromServer() {
-    return this.httpClient.get<Note[]>(this.api+`/Kathirit89`, { headers: this.header }).subscribe((data) => {
+    return this.httpClient.get<Note[]>(this.api, { headers: this.header }).subscribe((data) => {
       this.notes = data;
       this.notesSubject.next(this.notes);
       console.log("notes ::"+this.notes)

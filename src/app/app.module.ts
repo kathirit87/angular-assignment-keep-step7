@@ -20,10 +20,12 @@ import { NotesService } from './services/notes.service';
 import { RouterService } from './services/router.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: UserRegistrationComponent },
   { path: 'dashboard',
     component: DashboardComponent,
     canActivate: [ CanActivateRouteGuard ],
@@ -47,7 +49,8 @@ const routes: Routes = [
                   EditNoteOpenerComponent,
                   EditNoteViewComponent,
                   NoteTakerComponent,
-                  NoteComponent
+                  NoteComponent,
+                  UserRegistrationComponent
                 ],
   imports: [  HttpClientModule,
               BrowserModule,

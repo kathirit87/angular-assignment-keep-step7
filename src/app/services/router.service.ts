@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from "@angular/router";
 
 @Injectable()
 export class RouterService {
@@ -13,6 +13,10 @@ export class RouterService {
 
   routeToLogin() {
     this.router.navigate(['login']);
+  }
+
+  routeToUserRegistration() {
+    this.router.navigate(['register']);
   }
 
   routeToEditNoteView(noteId) {

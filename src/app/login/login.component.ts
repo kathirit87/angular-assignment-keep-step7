@@ -44,4 +44,9 @@ export class LoginComponent {
     this.loginForm.reset();
     this.formGroupDirective.resetForm();
     }
+
+    register() {
+      console.log('inside register function');
+      this.routerService.routeToUserRegistration();
+    }
 }
