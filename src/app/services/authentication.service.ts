@@ -22,6 +22,10 @@ export class AuthenticationService {
     return localStorage.getItem('bearerToken');
   }
 
+  clearBearerToken() {
+    localStorage.clear();
+  }
+
   isUserAuthenticated(token): Promise<boolean> {
     return this.httpService.post('http://localhost:9100/api/v1/auth/isAuthenticated', {}, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })

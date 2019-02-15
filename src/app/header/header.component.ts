@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterService } from '../services/router.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { RouterService } from '../services/router.service';
 })
 export class HeaderComponent {
   isNoteView = true;
-  constructor(private router: Router, private routerService: RouterService) {
+  constructor(private router: Router, private routerService: RouterService, private authService: AuthenticationService) {
 
     if (this.router.url === 'dashboard/view/listview') {
       this.isNoteView = false;
@@ -26,5 +27,11 @@ export class HeaderComponent {
         this.routerService.routeToNoteView();
         this.isNoteView = true;
     }
+  }
+
+  logout() {
+    this.authService.clearBearerToken();
+    
+    this.routerService.routeToLogin();
   }
 }

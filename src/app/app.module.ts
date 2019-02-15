@@ -21,6 +21,7 @@ import { RouterService } from './services/router.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserRegistrationService } from './services/user-registration.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -68,7 +69,7 @@ const routes: Routes = [
               FormsModule,
               RouterModule.forRoot(routes)
             ],
-  providers: [AuthenticationService, NotesService, RouterService, CanActivateRouteGuard],
+  providers: [AuthenticationService, NotesService, RouterService, CanActivateRouteGuard,UserRegistrationService],
   bootstrap: [ AppComponent ],
   entryComponents: [ EditNoteViewComponent ]
 })

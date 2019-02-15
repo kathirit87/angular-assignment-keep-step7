@@ -3,4 +3,8 @@
 		<i *ngIf="isNoteView" class="material-icons switchToListView" (click)="setView('lv')">view_list</i>
 		<i *ngIf="!isNoteView" class="material-icons switchToNoteView" (click)="setView('nv')">view_quilt</i>
 	</div>
+	<div>
+		<button mat-button (click)="logout()">Logout</button>
+	</div>
+
 </mat-toolbar>
