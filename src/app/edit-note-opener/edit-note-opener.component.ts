@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { NotesService } from '../services/notes.service';
 import { EditNoteViewComponent } from '../edit-note-view/edit-note-view.component';
+import { RouterService } from '../services/router.service';
 
 @Component({
   selector: 'app-edit-note-opener',
@@ -11,7 +12,8 @@ import { EditNoteViewComponent } from '../edit-note-view/edit-note-view.componen
 })
 export class EditNoteOpenerComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private notesService: NotesService ) { }
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, 
+    private notesService: NotesService , private routerService: RouterService) { }
     ngOnInit(): void {
       const noteId = +this.route.snapshot.paramMap.get('noteId');
       
@@ -20,6 +22,7 @@ export class EditNoteOpenerComponent implements OnInit {
         .subscribe(result => {
           console.log('The dialog was closed');
           this.notesService.fetchNotesFromServer();
+          this.routerService.routeToDashboard();
         });
       }
 }

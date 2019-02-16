@@ -1,5 +1,18 @@
+.keep-tool-bar {
+	width: 100%;
+	overflow: auto;
+}
+
+
 .keep-c-toggle-view {
 	width: 100%;
-	margin-left: 91%;
+	
 	cursor: pointer;
 }
+
+.keep-c-toggle-view i {
+	float: right;
+	padding: 12px;
+  }
+
+

@@ -1,10 +1,7 @@
-<mat-toolbar color="primary">Keep
+<mat-toolbar class="keep-tool-bar" color="primary">Keep
 	<div class="keep-c-toggle-view">
 		<i *ngIf="isNoteView" class="material-icons switchToListView" (click)="setView('lv')">view_list</i>
 		<i *ngIf="!isNoteView" class="material-icons switchToNoteView" (click)="setView('nv')">view_quilt</i>
+		<i class="material-icons logout" (click)="logout()">power_settings_new</i>
 	</div>
-	<div>
-		<button mat-button (click)="logout()">Logout</button>
-	</div>
-
 </mat-toolbar>

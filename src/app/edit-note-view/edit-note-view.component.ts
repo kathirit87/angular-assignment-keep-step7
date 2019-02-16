@@ -24,10 +24,13 @@ export class EditNoteViewComponent implements OnInit {
 
   onSave() {
     this.errMessage = '';
+    console.log('edit');
+    console.log('edit this.note:: '+this.note);
     this.noteService.editNote(this.note).subscribe(data => {
       console.log('edit');
     this.note = new Note();
     this.dialogRef.close();
+    
     },
     err => {
       this.errMessage = err.message;
